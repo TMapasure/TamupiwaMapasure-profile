@@ -1,0 +1,142 @@
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+}
+
+main > section {
+    margin-bottom: 0;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    /* fit as many columns as possible, each at least 9rem wide */
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: var(--space-2);
+}
+
+#skills li {
+    display: flex;
+    align-items: center;       /* centre up and down */
+    justify-content: center;   /* centre left and right */
+    min-height: 5rem;
+    padding: var(--space-2);
+    text-align: center;
+    font-weight: 700;
+    background-color: var(--black);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+
+#skills li + li {
+    margin-top: 0;             /* the grid gap does the spacing now */
+}
+
+
+nav {
+    align-items: center;
+}
+
+nav a {
+    flex: 0 1 auto;
+    text-align: center;
+}
+
+p {
+    overflow-wrap: anywhere;   /* long emails wrap instead of overflowing */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.field {
+    margin-bottom: 0;          /* gap handles spacing */
+}
+
+button {
+    width: 100%;               /* easy to tap on a phone */
+}
+
+
+@media (min-width: 768px) {
+
+    /* Header: photo on the left, text on the right (grid) */
+    header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 32rem);
+        column-gap: var(--space-4);
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    header > * {
+        margin-top: 0;
+    }
+
+    header img {
+        grid-row: 1 / span 4;  /* photo spans all 4 text rows */
+        width: 240px;
+        margin-inline: 0;
+    }
+
+    header h1 {
+        font-size: var(--text-3xl);
+    }
+
+    header nav {
+        justify-content: flex-start;
+        margin-top: var(--space-2);
+    }
+
+    /* Page: two columns (About | Contact) */
+    main {
+        max-width: 56rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #skills,
+    #message-form {
+        grid-column: 1 / -1;   /* these two use the whole row */
+    }
+
+    /* Form: Name | Email | Phone in one row, message below */
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-2);
+    }
+
+    .field:last-of-type,       /* the message box */
+    form button {
+        grid-column: 1 / -1;
+    }
+
+    form button {
+        width: auto;
+        justify-self: start;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    header img {
+        width: 280px;
+    }
+
+    main {
+        max-width: 72rem;
+        gap: var(--space-4);
+        grid-template-columns: 2fr 1fr;   /* About is wider than Contact */
+    }
+
+    main > section {
+        padding: var(--space-4);
+    }
+}

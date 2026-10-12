@@ -1,14 +1,14 @@
 
 :root {
     /* Colour: keeps your original orange + red, anchored by a deep navy */
-    --ink:        #12263a;   /* body text, header background */
-    --ice:        #eef4f8;   /* page background */
+    --ink:        #368ee6;   /* body text, header background */
+    --ice:        #b9def6;   /* page background */
     --surface:    #ffffff;   /* cards / form */
-    --orange:     #f47609;   /* primary accent (your h1 colour) */
+    --orange:     #0a033f;   /* primary accent (your h1 colour) */
     --red:        #c4121f;   /* secondary accent (your h2 colour, darkened for contrast) */
     --pink:       #d6087a;   /* "I love sports!" highlight */
-    --line:       #c9d6e0;   /* borders */
-
+    --line:       #0a0a0a;   /* borders */
+    --black:      #0a0a0a;
     /* Type scale (ratio ~1.25) */
     --text-sm:   0.875rem;
     --text-base: 1rem;
@@ -27,16 +27,13 @@
     --radius: 12px;
 }
 
-/* ---------- 2. RESET & BOX MODEL ---------- */
-/* border-box: padding and border are included in an element's width,
-   so a "width: 100%" input never overflows its container. */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Remove inconsistent browser defaults, then set our own deliberately */
+
 body,
 h1, h2, p, ul, figure {
     margin: 0;
@@ -48,7 +45,7 @@ img {
     display: block;
 }
 
-/* ---------- 3. TYPOGRAPHY ---------- */
+/*TYPOGRAPHY */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: var(--text-base);
@@ -181,8 +178,8 @@ textarea {
     width: 100%;
     padding: 0.75rem;
     font: inherit;
-    color: var(--ink);
-    background-color: var(--ice);
+    color: var(--black);
+    background-color: var(--red);
     border: 2px solid var(--line);
     border-radius: 8px;
 }
@@ -207,7 +204,6 @@ button:hover {
     border-color: var(--ink);
 }
 
-/* ---------- 6. FOCUS (accessibility) ---------- */
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,

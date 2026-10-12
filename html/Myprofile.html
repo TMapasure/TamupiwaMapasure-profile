@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Profile</title>
-    <link rel="stylesheet" href="new.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="secondstyles.css">
 </head>
 <body>
     <header>
+        <header id="home" class="bg-slate-900 text-slate-100 border-b-4 border-orange-500 px-6 py-8">
+        <div class="flex flex-col items-center gap-6 text-center md:flex-row md:justify-center md:text-left">
         <img src="c:\Users\Allan Mapasure\Desktop\KEANDRAS GALLERY\Quick Share\20240127_113317.jpg" alt="my image "width= "400px"height= "400px" style="border-radius: 20%;" >
 
-        <style>h1{color: rgb(244, 118, 9);font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: xx-large;font-weight: bolder;}
+        <style>h1{color: rgb(4, 3, 42);font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: xx-large;font-weight: bolder;}
             h2{color: rgb(219, 19, 33);font-style: italic;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
             p{font-style: italic;font-size: larger; font-weight: 800;}
         </style>
@@ -23,11 +27,18 @@
             <a href="#contact">Contact</a> |
             <a href="#skills">Skills</a>
         </nav>
+         <nav aria-label="Main navigation" class="flex flex-wrap justify-center gap-2 md:justify-start">
+                    <a href="#home" class="px-4 py-2 font-bold rounded-full border-2 border-transparent hover:border-orange-500 hover:text-orange-400">Home</a>
+                    <a href="#about" class="px-4 py-2 font-bold rounded-full border-2 border-transparent hover:border-orange-500 hover:text-orange-400">About</a>
+                    <a href="#contact" class="px-4 py-2 font-bold rounded-full border-2 border-transparent hover:border-orange-500 hover:text-orange-400">Contact</a>
+                    <a href="#skills" class="px-4 py-2 font-bold rounded-full border-2 border-transparent hover:border-orange-500 hover:text-orange-400">Skills</a>
+                </nav>
     </header>
     <main>
         <section>
             <article>
                 <h2>About me </h2>
+                 <p class="lead">I enjoy eating desserts and learning new skills.</p>
             <p style="font-size: x-large;"> I enjoy eating desserts and learning new skills</p>
             </article>
             
@@ -36,35 +47,51 @@
             <h2> Contacts</h2>
             <p>Email: mapasuret@africau | phone : 09875436| tel : 978443 |</p>
         </section>
-        <section>
-            <h2> Skills</h2>
+           <section id="skills">
+            <h2>Skills</h2>
             <ul>
-                <li>hockey player</li>
+                <li>Hockey player</li>
                 <li>Teamwork</li>
                 <li>Fast learner</li>
             </ul>
         </section>
-        <form>
-        <label for ="name"> Name </label>
-        <input type="text" pattern ="[A-Z a-z]+" id="name" name="name"required minlength="2" maxlength="50"><br>
-        <label for ="email"> Email address </label>
-        <input type="email" id = "email" name ="email" required> <br>
-         <label for ="Phone "> Phone Number </label> 
-        <input type="tel"id="phone"name="phone"required pattern="[0-9]" title="Enter exactly 10 digits"><br>
-        <label for="message">Your message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          minlength="10"
-          maxlength="500"
-        ></textarea><br>
-        <button type="submit">Send</button>
-       
-        
-
-        </form>
+         <section id="message-form">
+            <h2>Send me a message</h2>
+            <form class="flex flex-col gap-4">
+ 
+                <!-- stacked on mobile, side by side from md (768px) up -->
+                <div class="flex flex-col gap-4 md:flex-row">
+                    <div class="flex flex-col gap-1 flex-1">
+                        <label for="name" class="font-bold">Name</label>
+                        <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required minlength="2" maxlength="50"
+                               class="w-full p-3 bg-slate-100 border-2 border-slate-300 rounded-lg focus:border-orange-500">
+                    </div>
+ 
+                    <div class="flex flex-col gap-1 flex-1">
+                        <label for="email" class="font-bold">Email address</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full p-3 bg-slate-100 border-2 border-slate-300 rounded-lg focus:border-orange-500">
+                    </div>
+ 
+                    <div class="flex flex-col gap-1 flex-1">
+                        <label for="phone" class="font-bold">Phone number</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Enter exactly 10 digits"
+                               class="w-full p-3 bg-slate-100 border-2 border-slate-300 rounded-lg focus:border-orange-500">
+                    </div>
+                </div>
+ 
+                <div class="flex flex-col gap-1">
+                    <label for="message" class="font-bold">Your message</label>
+                    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"
+                              class="w-full p-3 bg-slate-100 border-2 border-slate-300 rounded-lg focus:border-orange-500"></textarea>
+                </div>
+ 
+                <button type="submit"
+                        class="w-full py-3 px-8 font-bold text-white bg-red-700 rounded-lg hover:bg-slate-900 md:w-auto md:self-start">
+                    Send
+                </button>
+            </form>
+        </section>
     </main>
     <footer><p>&copy; 2026 Personal Profile. All rights reserved.</p></footer>
 </body>
