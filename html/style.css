@@ -1,0 +1,217 @@
+
+:root {
+    /* Colour: keeps your original orange + red, anchored by a deep navy */
+    --ink:        #12263a;   /* body text, header background */
+    --ice:        #eef4f8;   /* page background */
+    --surface:    #ffffff;   /* cards / form */
+    --orange:     #f47609;   /* primary accent (your h1 colour) */
+    --red:        #c4121f;   /* secondary accent (your h2 colour, darkened for contrast) */
+    --pink:       #d6087a;   /* "I love sports!" highlight */
+    --line:       #c9d6e0;   /* borders */
+
+    /* Type scale (ratio ~1.25) */
+    --text-sm:   0.875rem;
+    --text-base: 1rem;
+    --text-lg:   1.25rem;
+    --text-xl:   1.5625rem;
+    --text-2xl:  1.953rem;
+    --text-3xl:  2.441rem;
+
+    /* Spacing scale (multiples of 8px) */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+
+    --radius: 12px;
+}
+
+/* ---------- 2. RESET & BOX MODEL ---------- */
+/* border-box: padding and border are included in an element's width,
+   so a "width: 100%" input never overflows its container. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove inconsistent browser defaults, then set our own deliberately */
+body,
+h1, h2, p, ul, figure {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- 3. TYPOGRAPHY ---------- */
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: var(--ice);
+}
+
+h1 {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--orange);
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: var(--text-xl);
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--red);
+    margin-bottom: var(--space-2);
+}
+
+.tagline {
+    font-size: var(--text-lg);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.highlight {
+    font-size: var(--text-lg);
+    font-style: italic;
+    font-weight: 700;
+    color: #ff6fb5;               /* lighter pink: readable on the navy header */
+}
+
+.lead {
+    font-size: var(--text-lg);
+    font-style: italic;
+}
+
+/* ---------- 4. LAYOUT & SPACING ---------- */
+header {
+    background-color: var(--ink);
+    color: var(--ice);
+    padding: var(--space-4) var(--space-3);
+    text-align: center;
+    border-bottom: 6px solid var(--orange);
+}
+
+header > * + * {
+    margin-top: var(--space-2);      /* consistent vertical rhythm */
+}
+
+header img {
+    width: 220px;
+    margin-inline: auto;
+    border-radius: 20%;              /* your original rounded-corner look */
+    border: 4px solid var(--orange);
+}
+
+main {
+    max-width: 44rem;                /* keeps line length readable */
+    margin-inline: auto;
+    padding: var(--space-4) var(--space-3);
+}
+
+main > section {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--orange);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+ul {
+    padding-left: var(--space-3);
+}
+
+li + li {
+    margin-top: var(--space-1);
+}
+
+footer {
+    background-color: var(--ink);
+    color: var(--ice);
+    text-align: center;
+    font-size: var(--text-sm);
+    padding: var(--space-3);
+}
+
+/* ---------- 5. COMPONENTS ---------- */
+/* Navigation */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1) var(--space-2);
+}
+
+nav a {
+    color: var(--ice);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 999px;
+}
+
+nav a:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* Form */
+.field {
+    margin-bottom: var(--space-2);
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font: inherit;
+    color: var(--ink);
+    background-color: var(--ice);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    font: inherit;
+    font-weight: 700;
+    color: var(--surface);
+    background-color: var(--red);
+    padding: 0.75rem var(--space-4);
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--ink);
+    border-color: var(--ink);
+}
+
+/* ---------- 6. FOCUS (accessibility) ---------- */
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px;
+}
